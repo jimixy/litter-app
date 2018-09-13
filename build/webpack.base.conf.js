@@ -78,6 +78,10 @@ module.exports = {
         }
       },
       {
+        test: /\.less$/,
+        loader: "style-loader!css-loader!less-loader"
+      },
+      {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',
         options: {

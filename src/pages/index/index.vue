@@ -28,7 +28,7 @@ import card from '@/components/card'
 export default {
   data () {
     return {
-      motto: 'Hello World',
+      motto: '我的天啊',
       userInfo: {}
     }
   },
@@ -66,7 +66,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+.container {
+  .usermotto {
+    margin-top: 150px;
+    color: #0f0;
+  }
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -86,6 +93,7 @@ export default {
 
 .usermotto {
   margin-top: 150px;
+  color: #f00;
 }
 
 .form-control {
