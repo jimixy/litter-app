@@ -62,6 +62,14 @@ export default {
   created () {
     // 调用应用实例的方法获取全局数据
     this.getUserInfo()
+    wx.request({
+      url: 'https://yesixuan.cn/ee',
+      method: 'GET',
+      data: { name: 'hehe', age: 44 },
+      success(res) {
+        console.log('测试GET请求的参数', res.data)
+      }
+    })
   }
 }
 </script>

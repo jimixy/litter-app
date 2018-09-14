@@ -1,9 +1,10 @@
 <template>
   <div class="counter-warp">
-    <p>Vuex counter：{{ count }}</p>
+    <p>Vuex rootState：{{ counter }}</p>
+    <p>Vuex moduleState：{{ count1 }}</p>
     <p>
       <button @click="increment">+</button>
-      <button @click="decrement">-</button>
+      <button @click="ADD">-</button>
     </p>
 
     <a href="/pages/index/main" class="home">去往首页</a>
@@ -12,21 +13,30 @@
 
 <script>
 // Use Vuex
-import store from './store'
+import {
+  createNamespacedHelpers,
+  mapMutations as mapRootMutations,  // 在一个组件中既要用到全局状态，又要用到模块中的状态时，防止重名
+  mapGetters as mapRootGetters
+} from 'vuex'
+const {
+  mapMutations,
+  mapState,
+  mapActions,
+  mapGetters
+} = createNamespacedHelpers('vic')
 
 export default {
   computed: {
-    count () {
-      return store.state.count
-    }
+    ...mapRootGetters(['counter']),
+    ...mapGetters(["count1"])
   },
   methods: {
-    increment () {
-      store.commit('increment')
-    },
-    decrement () {
-      store.commit('decrement')
-    }
+    ...mapRootMutations(["increment"]),
+    ...mapMutations(["ADD"]),
+    ...mapActions(["addAsync"])
+  },
+  created() {
+    console.log(this.$store)
   }
 }
 </script>
