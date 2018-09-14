@@ -3,8 +3,9 @@
     <p>Vuex rootState：{{ counter }}</p>
     <p>Vuex moduleState：{{ count1 }}</p>
     <p>
-      <button @click="increment">+</button>
-      <button @click="ADD">-</button>
+      <button @click="increment">加全局状态</button>
+      <button @click="ADD">加模块状态</button>
+      <button @click="addAsync(3)">异步加模块状态</button>
     </p>
 
     <a href="/pages/index/main" class="home">去往首页</a>
